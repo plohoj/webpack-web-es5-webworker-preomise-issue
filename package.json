@@ -1,0 +1,27 @@
+{
+  "name": "webpack-web-es5-webworker-promise-issue",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "webpack serve",
+    "build": "webpack build"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "Alexandr Plokhih",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@types/webpack": "^4.41.26",
+    "babel-loader": "^8.2.2",
+    "core-js": "^3.9.1",
+    "html-webpack-plugin": "^5.3.1",
+    "ts-loader": "^8.0.18",
+    "typescript": "^4.2.3",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
