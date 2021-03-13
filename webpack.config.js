@@ -2,7 +2,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
-    entry: './src/scripts/main.ts',
+    entry: [
+        'core-js/es/promise',
+        './src/scripts/main.ts'
+    ],
     module: {
         rules: [
             {
@@ -38,6 +41,6 @@ module.exports = {
             inject: 'head',
         }),
     ],
-    // devtool: 'inline-source-map',
+    devtool: 'inline-nosources-source-map',
     devServer: { port: 3400 },
 };
