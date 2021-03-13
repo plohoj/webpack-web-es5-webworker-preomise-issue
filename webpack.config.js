@@ -1,11 +1,10 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
-    entry: [
-        'core-js/es/promise',
-        './src/scripts/main.ts'
-    ],
+    entry: './src/scripts/main.ts',
     module: {
         rules: [
             {
@@ -40,6 +39,19 @@ module.exports = {
             template: './src/index.html',
             inject: 'head',
         }),
+        // <------ For IE11
+        new webpack.BannerPlugin({
+            raw: true,
+            banner: `if (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope && typeof self.Promise === "undefined") {
+                importScripts("/polyfill/es6-promise.auto.min.js");
+            }`,
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+              { from: "./node_modules/es6-promise/dist/es6-promise.auto.min.js", to: "./polyfill/es6-promise.auto.min.js" },
+            ],
+        }),
+        // ------>
     ],
     devtool: 'inline-nosources-source-map',
     devServer: { port: 3400 },
