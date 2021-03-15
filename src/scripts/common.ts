@@ -1,5 +1,5 @@
 export class Library {
-    public async log(): Promise<void> {
-        console.log('Some log');
+    public async addBook(book: string): Promise<void> {
+        console.log('Added book', book);
     }
 }

@@ -1,3 +1,3 @@
 import { Library } from "./common";
 
-new Library().log();
+new Library().addBook('Book №2');
